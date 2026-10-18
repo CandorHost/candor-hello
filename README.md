@@ -1,6 +1,6 @@
 # candor-hello
 
-The smallest app we use to demo [Candor Deploy](https://candordeploy.com/?utm_source=github&utm_medium=repo&utm_campaign=candor-hello): one page that shows the server's clock ticking live and a visit counter stored in Postgres.
+The smallest app we use to demo [Candor Deploy](https://candordeploy.com/?utm_source=github&utm_medium=readme&utm_campaign=candor-hello): one page that shows the server's clock ticking live and a visit counter stored in Postgres.
 
 **Push your code. We run the servers.**
 
@@ -10,7 +10,7 @@ The smallest app we use to demo [Candor Deploy](https://candordeploy.com/?utm_so
    Candor sees a Node app (`package.json` with a start script) and the `pg` driver, so it offers a Postgres database alongside it.
 3. Click **Deploy**. When it's live, open the app's address. The clock ticks and every refresh adds a visit.
 
-Or ask your AI coding agent: "deploy this to Candor." See [Deploy from Claude](https://candordeploy.com/docs/connect-claude/?utm_source=github&utm_medium=repo&utm_campaign=candor-hello).
+Or ask your AI coding agent: "deploy this to Candor." See [Deploy from Claude](https://candordeploy.com/docs/connect-claude/?utm_source=github&utm_medium=readme&utm_campaign=candor-hello).
 
 ## Try a change
 Edit the `VERSION` line in `server.js`, commit and push. The page shows the new version once it's live.
