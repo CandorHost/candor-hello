@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+dist
+.git
+.github
+.env*
+*.pem
+npm-debug.log*
+.DS_Store
+Dockerfile
+.dockerignore
