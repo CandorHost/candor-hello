@@ -1,0 +1,6 @@
+services:
+  web:
+    builder: dockerfile
+    dockerfile: Dockerfile
+    port: 8080
+    kind: app

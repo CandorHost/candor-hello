@@ -45,7 +45,7 @@ const page = (visits) => `<!doctype html>
   tick(); setInterval(tick,1000);
 </script></body></html>`;
 
-http
+const server = http
   .createServer(async (req, res) => {
     try {
       if (req.url === "/api/now") {
@@ -63,5 +63,17 @@ http
     }
   })
   .listen(PORT, () => console.log(JSON.stringify({ level: "info", msg: `candor-hello ${VERSION} listening on ${PORT}` })));
+
+// PID 1 in the container: handle stop signals so redeploys drain instead of waiting for SIGKILL.
+function shutdown(signal) {
+  console.log(JSON.stringify({ level: "info", msg: `${signal} received, shutting down` }));
+  server.close(async () => {
+    if (db) await db.end().catch(() => {});
+    process.exit(0);
+  });
+  setTimeout(() => process.exit(0), 8000).unref();
+}
+process.on("SIGTERM", () => shutdown("SIGTERM"));
+process.on("SIGINT", () => shutdown("SIGINT"));
 
 init().catch((err) => console.error(JSON.stringify({ level: "error", msg: `db init failed: ${err.message}` })));
